@@ -1,9 +1,9 @@
 ## Githerb 백엔드
 
-## 버전
+## Version
 - Spring Boot 2.5.1
-- java 11
-- github api 1.131
+- JAVA 11
+- Github API 1.131
 
 <br>
 
