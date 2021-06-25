@@ -100,14 +100,33 @@ class UserServiceTest {
         plantRepository.save(plantFailed);
 
         //when
-        ResponseUserInfo responseUserInfo = userService.getUserInfo("test1");
+        ResponseUserInfo responseUserInfo = userService.getUserInfo(users.get(0).getId());
 
         //then
         assertThat(responseUserInfo).extracting("id", "username", "name", "picture",
                 "userJob", "userDesc", "userTier", "following", "follower",
                 "plantAchieve.all", "plantAchieve.inProgress", "plantAchieve.done", "plantAchieve.failed")
-                .containsExactly(1L, "test1", "이름1", "사진경로1",
+                .containsExactly(users.get(0).getId(), "test1", "이름1", "사진경로1",
                         null, null, null, 3, 2,
                         4, 2, 1, 1);
+    }
+
+    @Test
+    @DisplayName("회원 전체 조회 테스트 (batchsize)")
+    public void findALlBatchSize() throws Exception{
+        //given when
+        List<User> users = userRepository.findAll();
+
+        //then
+        assertThat(users.get(0).getFollowings().size()).isEqualTo(3);
+        assertThat(users.get(0).getFollowers().size()).isEqualTo(2);
+        assertThat(users.get(1).getFollowings().size()).isEqualTo(1);
+        assertThat(users.get(1).getFollowers().size()).isEqualTo(1);
+        assertThat(users.get(2).getFollowings().size()).isEqualTo(1);
+        assertThat(users.get(2).getFollowers().size()).isEqualTo(1);
+        assertThat(users.get(3).getFollowings().size()).isEqualTo(0);
+        assertThat(users.get(3).getFollowers().size()).isEqualTo(1);
+
+
     }
 }
