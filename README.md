@@ -4,6 +4,7 @@
 - Spring Boot 2.5.1
 - JAVA 11
 - Github API 1.131
+- Gradle 6.8.3
 
 <br>
 
