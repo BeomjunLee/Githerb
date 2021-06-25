@@ -168,7 +168,7 @@ class PlantControllerTest {
         result.andExpect(status().isOk())
                 .andDo(document("getPlantInfo",
                         pathParameters(
-                                parameterWithName("id").description("식물 레포 id")
+                                parameterWithName("id").description("식물 고유 id")
                         ),
                         responseFields(
                                 fieldWithPath("id").type(JsonFieldType.NUMBER).description("식물 고유 id"),

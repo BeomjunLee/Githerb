@@ -100,13 +100,13 @@ class UserServiceTest {
         plantRepository.save(plantFailed);
 
         //when
-        ResponseUserInfo responseUserInfo = userService.getUserInfo("test1");
+        ResponseUserInfo responseUserInfo = userService.getUserInfo(users.get(0).getId());
 
         //then
         assertThat(responseUserInfo).extracting("id", "username", "name", "picture",
                 "userJob", "userDesc", "userTier", "following", "follower",
                 "plantAchieve.all", "plantAchieve.inProgress", "plantAchieve.done", "plantAchieve.failed")
-                .containsExactly(1L, "test1", "이름1", "사진경로1",
+                .containsExactly(users.get(0).getId(), "test1", "이름1", "사진경로1",
                         null, null, null, 3, 2,
                         4, 2, 1, 1);
     }

@@ -2,8 +2,6 @@ package com.githerb.domain.user.service;
 
 import com.githerb.domain.plant.dto.PlantAchieveDto;
 import com.githerb.domain.plant.entity.Plant;
-import com.githerb.domain.plant.repository.PlantRepository;
-import com.githerb.domain.plant.type.PlantStatus;
 import com.githerb.domain.user.dto.response.ResponseUserInfo;
 import com.githerb.domain.user.entity.Follow;
 import com.githerb.domain.user.entity.User;
@@ -37,11 +35,11 @@ public class UserService {
 
     /**
      * 회원 조회
-     * @param username 회원 아이디
+     * @param id 회원 고유 id
      * @return 회원 응답 dto
      */
-    public ResponseUserInfo getUserInfo(String username) {
-        User user = userQueryRepository.findByUsernameJoinPlant(username).orElseThrow(() -> new IllegalArgumentException("회원을 찾을 수 없습니다"));
+    public ResponseUserInfo getUserInfo(Long id) {
+        User user = userQueryRepository.findByIdJoinPlant(id).orElseThrow(() -> new IllegalArgumentException("회원을 찾을 수 없습니다"));
 
         return ResponseUserInfo.builder()
                 .id(user.getId())

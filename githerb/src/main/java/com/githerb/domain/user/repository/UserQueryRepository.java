@@ -12,12 +12,12 @@ import static com.githerb.domain.user.entity.QUser.*;
 public class UserQueryRepository {
     private final JPAQueryFactory queryFactory;
 
-    public Optional<User> findByUsernameJoinPlant(String username) {
+    public Optional<User> findByIdJoinPlant(Long id) {
         User findUser = queryFactory
                 .selectDistinct(user)
                 .from(user)
                 .leftJoin(user.plants, plant).fetchJoin()
-                .where(user.username.eq(username))
+                .where(user.id.eq(id))
                 .fetchOne();
         return Optional.ofNullable(findUser);
     }

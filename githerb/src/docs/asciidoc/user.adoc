@@ -56,6 +56,21 @@
 
 |===
 
-== App api 문서
+== User api 문서
 
-어플 서비스 api 문서
+회원 서비스 api 문서
+
+=== 로그인 (Github 연동)
+
+`GET` /oauth2/authorization/github
+
+
+
+=== 회원 조회
+
+`GET` 회원을 조회할 수 있다 (로그인 필요 x)
+
+include::{snippets}/getUserInfo/http-request.adoc[]
+include::{snippets}/getUserInfo/path-parameters.adoc[]
+include::{snippets}/getUserInfo/http-response.adoc[]
+include::{snippets}/getUserInfo/response-fields.adoc[]
