@@ -28,6 +28,6 @@ public class PlantController {
     public ResponsePlantInfo getPlant(@AuthenticationPrincipal OAuth2User oAuth2User,
                                       @PathVariable Long id,
                                       HttpSession session) throws IOException {
-        return plantService.getPlant(session.getAttribute("oAuthToken").toString(), oAuth2User.getName(), id);
+        return plantService.getPlant(String.valueOf(session.getAttribute("oAuthToken")), oAuth2User.getName(), id);
     }
 }

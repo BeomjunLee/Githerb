@@ -132,8 +132,8 @@ public class PlantService {
 
     /**
      * 커밋 언어 그 외 필드 추가 및 변환
-     * @param comLang
-     * @return
+     * @param comLang 커밋 언어 dto 리스트 (추가 삭제를 위해 링크드 리스트)
+     * @return 작업 완료된 커밋 언어 dto 리스트 (arrayList)
      */
     private List<CommitLanguageDto> extractOtherLanguage(LinkedList<CommitLanguageDto> comLang) {
         double percentSum = 0;
