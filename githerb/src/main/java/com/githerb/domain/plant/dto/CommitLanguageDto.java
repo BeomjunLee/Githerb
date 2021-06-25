@@ -5,9 +5,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class CommitLanguageDto {
+public class CommitLanguageDto implements Serializable {
     private String language;
     private double percentage;
     private Long usedLine;
