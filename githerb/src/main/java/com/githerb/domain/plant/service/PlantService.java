@@ -129,7 +129,7 @@ public class PlantService {
 
         return extractOtherLanguage(commitLanguageDtoLinkedList);
     }
-
+    
     /**
      * 커밋 언어 그 외 필드 추가 및 변환
      * @param comLang 커밋 언어 dto 리스트 (추가 삭제를 위해 링크드 리스트)
