@@ -3,6 +3,8 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,7 +13,7 @@ import javax.persistence.*;
 public class Follow {
     @Id
     @GeneratedValue
-    @Column(name = "friend_id")
+    @Column(name = "follow_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

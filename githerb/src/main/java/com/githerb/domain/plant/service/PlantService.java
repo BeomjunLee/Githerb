@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.io.IOException;
@@ -73,10 +74,9 @@ public class PlantService {
                 .build();
 
         Plant plant = plantQueryRepository.findByIdJoinUser(id, username).orElseThrow(() -> new IllegalArgumentException("식물 레포를 찾을 수 없습니다"));
-
         GHRepository repository = gitHub.getRepository(plant.getRepoName());
-        List<CommitDto> commitDtos = transferCommitDto(repository);
 
+        List<CommitDto> commitDtos = transferCommitDto(repository);
         List<CommitLanguageDto> comLang = getCommitLanguages(repository.listLanguages());
 
         double seconds = Duration.between(plant.getStartDate(), plant.getDeadLine()).getSeconds();

@@ -30,11 +30,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
-    @BatchSize(size = 100)
     @OneToMany(mappedBy = "followerUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Follow> followings = new ArrayList<>();
 
-    @BatchSize(size = 100)
     @OneToMany(mappedBy = "followingUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Follow> followers = new ArrayList<>();
 
@@ -55,4 +53,6 @@ public class User {
         this.picture = user.getPicture();
         return this;
     }
+
+    //TODO 나머지 회원 정보 입력
 }

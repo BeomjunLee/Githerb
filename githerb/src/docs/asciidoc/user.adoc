@@ -1,13 +1,3 @@
-  = REST API Guide
-:doctype: book
-:icons: font
-:source-highlighter: highlightjs
-:toc: left
-:toclevels: 4
-:sectlinks:
-:operation-curl-request-title: Example request
-:operation-http-response-title: Example response
-
 [[overview-http-verbs]]
 == HTTP 동사
 
