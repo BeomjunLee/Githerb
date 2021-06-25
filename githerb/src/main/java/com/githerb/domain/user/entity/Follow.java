@@ -37,4 +37,9 @@ public class Follow {
                             .build();
         return follow;
     }
+
+    @Override
+    public String toString() {
+        return "[USER]following:" + followingUser.getUsername() + "|follower:" + followerUser.getUsername();
+    }
 }

@@ -1,6 +1,7 @@
 package com.githerb.domain.user.controller;
 import com.githerb.domain.user.dto.UserDto;
 import com.githerb.domain.user.dto.request.RequestFollow;
+import com.githerb.domain.user.dto.response.ResponseUserInfo;
 import com.githerb.global.dto.ResponseResult;
 import com.githerb.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,11 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+
+    @GetMapping("/{id}")
+    public ResponseUserInfo getUserInfo(@PathVariable Long id) {
+        return userService.getUserInfo(id);
+    }
 
     @PostMapping("/followings")
     public ResponseResult following(@AuthenticationPrincipal OAuth2User oAuth2User,
